@@ -1,6 +1,7 @@
 ﻿using MathLibrary;
 using Raylib_cs;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 namespace Sandbox
 {
     internal class Program
@@ -10,7 +11,7 @@ namespace Sandbox
             Raylib.InitWindow(Raylib.GetScreenWidth(), Raylib.GetScreenHeight(), "Hello World");
             Vector2 deltaPosition = new Vector2(0, 0);
             Vector2 position = new Vector2();
-            Raylib.SetTargetFPS(144);
+            Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
             {
@@ -30,9 +31,14 @@ namespace Sandbox
                 deltaPosition.Y += down;
                 deltaPosition.X -= left;
                 deltaPosition.X += right;
- 
-                position.X = deltaPosition.X * Raylib.GetFrameTime() *  speed;
-                position.Y = deltaPosition.Y * Raylib.GetFrameTime() *  speed;
+               
+                
+                position.X = deltaPosition.X * Raylib.GetFrameTime() * speed;
+              
+                position.Y = deltaPosition.Y * Raylib.GetFrameTime() * speed;
+
+                
+              
 
                 
 

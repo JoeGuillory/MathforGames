@@ -19,7 +19,7 @@ namespace Sandbox
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.Black);
                 Raylib.DrawRectangle((int)position.X, (int)position.Y, 80, 80, Color.SkyBlue);
-                
+                Rectangle bullet = new Rectangle(0, 0, 10, 10);
                 
                 
                 int up = Raylib.IsKeyDown(KeyboardKey.W);
@@ -27,11 +27,18 @@ namespace Sandbox
                 int left = Raylib.IsKeyDown(KeyboardKey.A);
                 int right = Raylib.IsKeyDown(KeyboardKey.D);
 
+                
+
                 deltaPosition.Y -= up;
                 deltaPosition.Y += down;
                 deltaPosition.X -= left;
                 deltaPosition.X += right;
-               
+                if (Raylib.IsKeyPressed(KeyboardKey.Space))
+                {
+                    
+
+
+                }
                 
                 position.X = deltaPosition.X * Raylib.GetFrameTime() * speed;
               

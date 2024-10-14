@@ -9,8 +9,7 @@ namespace Sandbox
         static void Main(string[] args)
         {
             Raylib.InitWindow(Raylib.GetScreenWidth(), Raylib.GetScreenHeight(), "Hello World");
-            Vector2 deltaPosition = new Vector2(0, 0);
-            Vector2 position = new Vector2();
+           
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
@@ -18,7 +17,7 @@ namespace Sandbox
                 int speed = 1000;
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.Black);
-                Raylib.DrawRectangle((int)position.X, (int)position.Y, 80, 80, Color.SkyBlue);
+              
                 Rectangle bullet = new Rectangle(0, 0, 10, 10);
                 
                 
@@ -29,21 +28,14 @@ namespace Sandbox
 
                 
 
-                deltaPosition.Y -= up;
-                deltaPosition.Y += down;
-                deltaPosition.X -= left;
-                deltaPosition.X += right;
+             
                 if (Raylib.IsKeyPressed(KeyboardKey.Space))
                 {
                     
 
 
                 }
-                
-                position.X = deltaPosition.X * Raylib.GetFrameTime() * speed;
               
-                position.Y = deltaPosition.Y * Raylib.GetFrameTime() * speed;
-
                 
               
 

@@ -8,6 +8,8 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
+            MathLibrary.Vector2 a = new MathLibrary.Vector2(1, 2);
+            Console.WriteLine(a.ToString());
             Raylib.InitWindow(Raylib.GetScreenWidth(), Raylib.GetScreenHeight(), "Hello World");
            
             Raylib.SetTargetFPS(60);

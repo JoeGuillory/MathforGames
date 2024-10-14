@@ -10,10 +10,35 @@ namespace MathLibrary
     {
         float x, y;
 
+
+        public float Magnitude
+        {
+            get
+            {
+                return (float)Math.Abs(Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2)));
+            }
+        }
+        public Vector2 Normalized
+        {
+            get
+            {
+                return this / Magnitude;
+            }
+        }
+        public override string ToString()
+        {
+            return "(" + x + ", " + y + ")";
+        }
         public Vector2(float x = 0, float y = 0)
         {
             this.x = x;
             this.y = y;
+        }
+
+        public Vector2 Normalize()
+        {
+            this = Normalized;
+            return this;
         }
 
         //Checks if the Vectors are Equal
@@ -36,20 +61,15 @@ namespace MathLibrary
         {
             return new Vector2(left.x - right.x, left.y - right.y);
         }
-        //Multiply two vectors
-        public static Vector2 operator *(Vector2 left, Vector2 right)
+        // Scale a vector up
+        public static Vector2 operator *(Vector2 left, float scaler)
         {
-            return new Vector2(left.x * right.x, left.y * right.y);
+            return new Vector2(left.x * scaler, left.y * scaler);
         }
-        // Scale a vector
-        public static Vector2 operator *(Vector2 left, float right)
+        //Scale a vector down
+        public static Vector2 operator /(Vector2 left, float scaler)
         {
-            return new Vector2(left.x * right, left.y * right);
-        }
-        //Divide two vectors
-        public static Vector2 operator /(Vector2 left, Vector2 right)
-        {
-            return new Vector2(left.x / right.x, left.y / right.y);
+            return new Vector2(left.x / scaler, left.y / scaler);
         }
         //implicit conversion from System.Numerics.Vector2 to Vector2
         public static implicit operator Vector2(System.Numerics.Vector2 vector)
@@ -61,7 +81,7 @@ namespace MathLibrary
         {
             return new System.Numerics.Vector2(vector.x, vector.y);
         }
-
+        
     }
 
 }

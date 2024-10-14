@@ -16,7 +16,7 @@ namespace Sandbox
             {
                 int speed = 1000;
                 Raylib.BeginDrawing();
-                Raylib.ClearBackground(Color.Black);
+                Raylib.ClearBackground(Color.White);
               
                 Rectangle bullet = new Rectangle(0, 0, 10, 10);
                 

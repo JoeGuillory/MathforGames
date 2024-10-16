@@ -41,6 +41,19 @@ namespace MathLibrary
             this = Normalized;
             return this;
         }
+        public float DotProduct(Vector3 other) 
+        {
+
+            return (x * other.x) + (y * other.y) + (z * other.y);
+
+        }
+        //𝑎 × 𝑏 = 𝑎𝑦 𝑏𝑧 − 𝑎𝑧 𝑏𝑦 cross for x
+              //  𝑎𝑧 𝑏𝑥 − 𝑎𝑥 𝑏𝑧 cross for y
+              //  𝑎𝑥 𝑏𝑦 − 𝑎𝑦 bx cross for z
+        public Vector3 CrossProduct(Vector3 other)
+        {
+            return new Vector3((y * other.z - z * other.y),(z * other.x - x * other.z),(x * other.y - y * other.x));  
+        }
 
         //Checks if the Vectors are Equal
         public static bool operator ==(Vector3 left, Vector3 right)

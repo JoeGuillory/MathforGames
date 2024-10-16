@@ -41,6 +41,24 @@ namespace MathLibrary
             return this;
         }
 
+        public float DotProduct(Vector2 other)
+        {
+            return (x * other.x) + (y * other.y);
+        }
+        public Vector2 CrossProduct()
+        {
+            return new Vector2(y, x);
+        }
+        public float Angle(Vector2 other)
+        {
+            return (float)Math.Acos(other.DotProduct(this));
+        }
+
+        public float Distance(Vector2 other)
+        {
+            return (other - this).Magnitude;
+        }
+
         //Checks if the Vectors are Equal
         public static bool operator ==(Vector2 left, Vector2 right)
         {

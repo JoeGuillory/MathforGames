@@ -26,11 +26,15 @@ namespace Sandbox
             Vector2 enemyPosition = new Vector2(ScreenDimension.x * 0.5f, ScreenDimension.y * 0.50f);
             float enemyRadius = 10;
             Color enemyColor = Color.Red;
+            Vector2 bob = new Vector2(1, 1);
+            Vector2 lol = new Vector2(3, 1);
 
+            Console.WriteLine("Output: " + bob.DotProduct(lol));
             while (!Raylib.WindowShouldClose())
             {
                 //Update
                 //Movement
+
 
                 Vector2 movementInput = new Vector2();
                 movementInput.y -= Raylib.IsKeyDown(KeyboardKey.W);

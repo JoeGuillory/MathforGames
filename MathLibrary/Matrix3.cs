@@ -34,17 +34,24 @@ namespace MathLibrary
         {
             get
             {
-                return new Matrix3(
-                     1, 0, 0,
+                return new Matrix3
+                  (1, 0, 0,
  
-                     0, 1, 0,
+                   0, 1, 0,
  
-                     0, 0, 1);
+                   0, 0, 1);
                 
             }
            
         }
-       
+        public override string ToString()
+        {
+            string matrix = ("| " + m00 + "," + m01 + "," + m02 + "|") +
+                ("\n| " + m10 + "," + m11 + "," + m12 + "|") +
+                ("\n| " + m20 + "," + m21 + "," + m22 + "|");
+                
+            return matrix;
+        }
         public static Matrix3 operator +(Matrix3 a , Matrix3 b)
         {
             return new Matrix3(

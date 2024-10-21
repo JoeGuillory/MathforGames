@@ -8,7 +8,8 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
-           
+            Matrix3 bob = new Matrix3(1, 1, 1, 1, 1, 1, 1, 1, 1);
+            Console.WriteLine(bob.ToString());
             Raylib.InitWindow(800, 400, "Hello World");
             Vector2 ScreenDimension = new Vector2 (Raylib.GetScreenWidth(), Raylib.GetScreenHeight());
 
@@ -25,10 +26,10 @@ namespace Sandbox
             Vector2 enemyPosition = new Vector2(ScreenDimension.x * 0.5f, ScreenDimension.y * 0.50f);
             float enemyRadius = 10;
             Color enemyColor = Color.Red;
-            Vector2 bob = new Vector2(1, 1);
+           
             Vector2 lol = new Vector2(3, 1);
 
-            Console.WriteLine("Output: " + bob.DotProduct(lol));
+           
             while (!Raylib.WindowShouldClose())
             {
                 //Update

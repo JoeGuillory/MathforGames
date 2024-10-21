@@ -8,7 +8,6 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
-
            
             Raylib.InitWindow(800, 400, "Hello World");
             Vector2 ScreenDimension = new Vector2 (Raylib.GetScreenWidth(), Raylib.GetScreenHeight());

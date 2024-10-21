@@ -44,7 +44,7 @@ namespace MathLibrary
             }
            
         }
-
+       
         public static Matrix3 operator +(Matrix3 a , Matrix3 b)
         {
             return new Matrix3(
@@ -86,9 +86,6 @@ namespace MathLibrary
                 a.m20 * b.m01 + a.m21 * b.m11 + a.m22 * b.m21,
                 a.m20 * b.m02 + a.m21 * b.m12 + a.m22 * b.m22
                 );
-
-
-
 
         }
 

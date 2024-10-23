@@ -60,20 +60,23 @@ namespace MathLibrary
         }
         public static Matrix4 CreateRotationX(float radian)
         {
-            return new Matrix4(MathF.Cos(radian), MathF.Sin(radian), 0, 0,
-                               -MathF.Sin(radian), MathF.Cos(radian), 0, 0,
-                               0, 0, 1, 0, 0, 0, 0, 1);
+            return new Matrix4(1,0,0,0,
+                              0,MathF.Cos(radian), -MathF.Sin(radian),0, 
+                              0,MathF.Sin(radian), MathF.Cos(radian),0,
+                              0,0,0,1);
         }
         public static Matrix4 CreateRotationY(float radian)
         {
-            return new Matrix4(MathF.Cos(radian), -MathF.Sin(radian), 0, 0,
-                              MathF.Sin(radian), MathF.Cos(radian), 0, 0,
-                              0, 0, 1, 0, 0, 0, 0, 1);
+            return new Matrix4(MathF.Cos(radian), 0, MathF.Sin(radian), 0,
+                               0, 1, 0, 0, 
+                               -MathF.Sin(radian), 0, MathF.Cos(radian), 0,
+                               0, 0, 0, 1);
+                              
         }
         public static Matrix4 CreateRotationZ(float radian)
         {
-            return new Matrix4(MathF.Cos(radian), MathF.Sin(radian), 0, 0,
-                              -MathF.Sin(radian), MathF.Cos(radian), 0, 0,
+            return new Matrix4(MathF.Cos(radian), -MathF.Sin(radian), 0, 0,
+                              MathF.Sin(radian), MathF.Cos(radian), 0, 0,
                               0, 0, 1, 0, 0, 0, 0, 1);
         }
         public static Matrix4 operator +(Matrix4 a, Matrix4 b)

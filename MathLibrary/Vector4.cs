@@ -49,13 +49,13 @@ namespace MathLibrary
         public float DotProduct(Vector4 other)
         {
 
-            return (x * other.x) + (y * other.y) + (z * other.y) +(w * other.w);
+            return (x * other.x) + (y * other.y) + (z * other.z) +(w * other.w);
 
         }
         public static float DotProduct(Vector4 left, Vector4 right)
         {
 
-            return (left.x * right.x) + (left.y * right.y) + (left.z * right.y) + (left.w * right.w);
+            return (left.x * right.x) + (left.y * right.y) + (left.z * right.z) + (left.w * right.w);
 
         }
         //𝑎 × 𝑏 = 𝑎𝑦 𝑏𝑧 − 𝑎𝑧 𝑏𝑦 cross for x
@@ -94,11 +94,11 @@ namespace MathLibrary
         // Scale a vector up
         public static Vector4 operator *(Vector4 left, float scaler)
         {
-            return new Vector4(left.x * scaler, left.y * scaler, left.z * scaler, left.z * scaler);
+            return new Vector4(left.x * scaler, left.y * scaler, left.z * scaler, left.w * scaler);
         }
         public static Vector4 operator *(float scaler, Vector4 left)
         {
-            return new Vector4(left.x * scaler, left.y * scaler, left.z * scaler, left.z * scaler);
+            return new Vector4(left.x * scaler, left.y * scaler, left.z * scaler, left.w * scaler);
         }
         //Scale a vector down
         public static Vector4 operator /(Vector4 left, float scaler)

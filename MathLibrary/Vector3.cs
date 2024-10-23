@@ -48,12 +48,12 @@ namespace MathLibrary
         public float DotProduct(Vector3 other) 
         {
 
-            return (x * other.x) + (y * other.y) + (z * other.y);
+            return (x * other.x) + (y * other.y) + (z * other.z);
 
         }
         public static float DotProduct(Vector3 left, Vector3 right)
         {
-            return (left.x * right.x) + (left.y * right.y) + (left.z * right.y);
+            return (left.x * right.x) + (left.y * right.y) + (left.z * right.z);
         }
         //𝑎 × 𝑏 = 𝑎𝑦 𝑏𝑧 − 𝑎𝑧 𝑏𝑦 cross for x
               //  𝑎𝑧 𝑏𝑥 − 𝑎𝑥 𝑏𝑧 cross for y

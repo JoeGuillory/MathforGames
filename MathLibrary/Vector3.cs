@@ -35,6 +35,10 @@ namespace MathLibrary
             this.y = y;
             this.z = z;
         }
+        public float  GetMagnitude()
+        {
+            return Magnitude;
+        }
 
         public Vector3 Normalize()
         {
@@ -47,12 +51,21 @@ namespace MathLibrary
             return (x * other.x) + (y * other.y) + (z * other.y);
 
         }
+        public static float DotProduct(Vector3 left, Vector3 right)
+        {
+            return (left.x * right.x) + (left.y * right.y) + (left.z * right.y);
+        }
         //𝑎 × 𝑏 = 𝑎𝑦 𝑏𝑧 − 𝑎𝑧 𝑏𝑦 cross for x
               //  𝑎𝑧 𝑏𝑥 − 𝑎𝑥 𝑏𝑧 cross for y
               //  𝑎𝑥 𝑏𝑦 − 𝑎𝑦 bx cross for z
         public Vector3 CrossProduct(Vector3 other)
         {
             return new Vector3((y * other.z - z * other.y),(z * other.x - x * other.z),(x * other.y - y * other.x));  
+        }
+        public static Vector3 CrossProduct(Vector3 left, Vector3 right)
+        {
+            return new Vector3((left.y * right.z - left.z * right.y), (left.z * right.x - left.x * right.z), (left.x * right.y - left.y * right.x));
+
         }
 
         //Checks if the Vectors are Equal
@@ -77,6 +90,10 @@ namespace MathLibrary
         }
         // Scale a vector up
         public static Vector3 operator *(Vector3 left, float scaler)
+        {
+            return new Vector3(left.x * scaler, left.y * scaler, left.z * scaler);
+        }
+        public static Vector3 operator *(float scaler,Vector3 left)
         {
             return new Vector3(left.x * scaler, left.y * scaler, left.z * scaler);
         }

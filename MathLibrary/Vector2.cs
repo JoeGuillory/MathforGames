@@ -45,6 +45,10 @@ namespace MathLibrary
         {
             return (x * other.x) + (y * other.y);
         }
+        public float DotProduct(Vector2 left, Vector2 right)
+        {
+            return (left.x * right.x) + (left.y * right.y);
+        }
         public Vector2 CrossProduct()
         {
             return new Vector2(y, x);
@@ -81,6 +85,10 @@ namespace MathLibrary
         }
         // Scale a vector up
         public static Vector2 operator *(Vector2 left, float scaler)
+        {
+            return new Vector2(left.x * scaler, left.y * scaler);
+        }
+        public static Vector2 operator *(float scaler, Vector2 left)
         {
             return new Vector2(left.x * scaler, left.y * scaler);
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -52,6 +53,31 @@ namespace MathLibrary
                 
             return matrix;
         }
+        public static Matrix3 CreateTranslation(float x, float y)
+        {
+            return new Matrix3(1, 0, x,
+                               0, 1, y,
+                               0, 0, 1);
+        }
+        public static Matrix3 CreateRotation(float radians)
+        {
+            return new Matrix3(MathF.Cos(radians), -MathF.Sin(radians), 0,
+                               MathF.Sin(radians), MathF.Cos(radians), 0,
+                                 0, 0, 1);
+        }
+        public static Matrix3 CreateScale(float x, float y)
+        {
+            return new Matrix3(x, 0, 0,
+                               0, y, 0,
+                               0, 0, 1);
+        }
+        static Matrix3 Transpose(Matrix3 mat)
+        {
+            return new Matrix3(mat.m00, mat.m10, mat.m20,
+                               mat.m01, mat.m11, mat.m21,
+                               mat.m02, mat.m12, mat.m22);
+
+        }
         public static Matrix3 operator +(Matrix3 a , Matrix3 b)
         {
             return new Matrix3(
@@ -78,6 +104,14 @@ namespace MathLibrary
            a.m20 - b.m20,
            a.m21 - b.m21,
            a.m22 - b.m22);
+        }
+        public static Vector3 operator *(Matrix3 a, Vector3 b)
+        {
+            return new Vector3(a.m00 * b.x + a.m01 * b.y + a.m02 * b.z,
+                               a.m10 * b.x + a.m11 * b.y + a.m12 * b.z,
+                               a.m20 * b.x + a.m21 * b.y + a.m22 * b.z);
+
+
         }
         public static Matrix3 operator *(Matrix3 a, Matrix3 b)
         {

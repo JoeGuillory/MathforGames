@@ -9,10 +9,7 @@ namespace Sandbox
         static void Main(string[] args)
         {
 
-            Matrix4 matrixone = new Matrix4(9,3,4,1,9,3,4,1,9,3,4,1,9,3,4,1);
-            Matrix4 matrixtwo = new Matrix4(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
-            matrixone = matrixone * matrixtwo;
-            Console.WriteLine(matrixone.ToString());
+           
              
             Raylib.InitWindow(800, 400, "Hello World");
             Vector2 ScreenDimension = new Vector2 (Raylib.GetScreenWidth(), Raylib.GetScreenHeight());

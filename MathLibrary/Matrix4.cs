@@ -8,7 +8,7 @@ namespace MathLibrary
 {
     public struct Matrix4
     {
-        float m00, m01, m02, m03,
+        public float m00, m01, m02, m03,
               m10, m11, m12, m13,
               m20, m21, m22, m23,
               m30, m31, m32, m33;
@@ -58,6 +58,24 @@ namespace MathLibrary
 
             return matrix;
         }
+        public static Matrix4 CreateRotationX(float radian)
+        {
+            return new Matrix4(MathF.Cos(radian), MathF.Sin(radian), 0, 0,
+                               -MathF.Sin(radian), MathF.Cos(radian), 0, 0,
+                               0, 0, 1, 0, 0, 0, 0, 1);
+        }
+        public static Matrix4 CreateRotationY(float radian)
+        {
+            return new Matrix4(MathF.Cos(radian), -MathF.Sin(radian), 0, 0,
+                              MathF.Sin(radian), MathF.Cos(radian), 0, 0,
+                              0, 0, 1, 0, 0, 0, 0, 1);
+        }
+        public static Matrix4 CreateRotationZ(float radian)
+        {
+            return new Matrix4(MathF.Cos(radian), MathF.Sin(radian), 0, 0,
+                              -MathF.Sin(radian), MathF.Cos(radian), 0, 0,
+                              0, 0, 1, 0, 0, 0, 0, 1);
+        }
         public static Matrix4 operator +(Matrix4 a, Matrix4 b)
         {
             return new Matrix4(
@@ -99,7 +117,15 @@ namespace MathLibrary
               a.m32 - b.m32,
               a.m33 - b.m33);
         }
+        public static Vector4 operator *(Matrix4 a, Vector4 b)
+        {
+            return new Vector4(a.m00 * b.x + a.m01 * b.y + a.m02 * b.z + a.m03 * b.w,
+                               a.m10 * b.x + a.m11 * b.y + a.m12 * b.z + a.m13 * b.w,
+                               a.m20 * b.x + a.m21 * b.y + a.m22 * b.z + a.m23 * b.w,
+                               a.m30 * b.x + a.m31 * b.y + a.m32 * b.z + a.m33 * b.w);
 
+
+        }
         //Need to finish this Function
         public static Matrix4 operator *(Matrix4 a, Matrix4 b)
         {

@@ -41,10 +41,21 @@ namespace MathLibrary
             return this;
         }
 
+        /// <summary>
+        /// Gets the Dot product of this Objects vector to another vector
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public float DotProduct(Vector2 other)
         {
             return (x * other.x) + (y * other.y);
         }
+        /// <summary>
+        /// Gets the Dot Product of two different Vectors
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public float DotProduct(Vector2 left, Vector2 right)
         {
             return (left.x * right.x) + (left.y * right.y);

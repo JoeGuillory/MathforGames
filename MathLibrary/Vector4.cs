@@ -46,12 +46,23 @@ namespace MathLibrary
             this = Normalized;
             return this;
         }
+        /// <summary>
+        /// Gets the Dot product of this Objects vector to another vector
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public float DotProduct(Vector4 other)
         {
 
             return (x * other.x) + (y * other.y) + (z * other.z) +(w * other.w);
 
         }
+        /// <summary>
+        /// Gets the Dot proctuct of two different Vectors
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static float DotProduct(Vector4 left, Vector4 right)
         {
 

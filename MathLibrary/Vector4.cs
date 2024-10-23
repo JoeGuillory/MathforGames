@@ -74,7 +74,7 @@ namespace MathLibrary
         //  𝑎𝑥 𝑏𝑦 − 𝑎𝑦 bx cross for z
         public Vector4 CrossProduct(Vector4 other)
         {
-            return new Vector4((y * other.z - z * other.y), (z * other.x - x * other.z), (x * other.y - y * other.x), w);
+            return new Vector4((y * other.z - z * other.y), (z * other.x - x * other.z), (x * other.y - y * other.x), w = 0);
         }
         public static Vector4 CrossProduct(Vector4 left, Vector4 right)
         {

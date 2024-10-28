@@ -27,8 +27,8 @@ namespace Engine
             set
             {
                 _localRotation = value;
-
-                _localRotationAngle = (float)Math.Atan2(_localRotation.m01, _localRotation.m00);
+                
+                _localRotationAngle = -(float)Math.Atan2(_localRotation.m01, _localRotation.m00);
                 UpdateTransforms();
             }
 
@@ -81,12 +81,12 @@ namespace Engine
 
         public Vector2 Forward
         {
-            get { return new Vector2(_globalMatrix.m00, _globalMatrix.m10); }
+            get { return new Vector2(_globalMatrix.m00, _globalMatrix.m10).Normalized; }
         }
 
         public Vector2 Right
         {
-            get { return new Vector2(_globalMatrix.m01, _globalMatrix.m11); }
+            get { return new Vector2(_globalMatrix.m01, _globalMatrix.m11).Normalized; }
         }
 
         public float LocalRotationAngle
@@ -116,8 +116,19 @@ namespace Engine
             LocalPosition += new Vector2(x, y);
         }
 
+        public void Rotate(float radians)
+        {
+            LocalRotation = Matrix3.CreateRotation(_localRotationAngle + radians);
+        }
+
         public void AddChild(Transform2D child)
         {
+            // Do not add the child if it is this transforms's parent
+            if(child == _parent)
+            {
+                return;
+            }
+           
             Transform2D[] temp = new Transform2D[_children.Length + 1];
 
             for (int i = 0; i < _children.Length; i++)

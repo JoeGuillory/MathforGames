@@ -118,28 +118,61 @@ namespace Engine
 
         public void AddChild(Transform2D child)
         {
-            Transform2D[] tempArray = new Transform2D[_children.Length + 1];
+            Transform2D[] temp = new Transform2D[_children.Length + 1];
 
-            foreach (Transform2D children in _children)
+            for (int i = 0; i < _children.Length; i++)
             {
-                int i = 0;
-                tempArray[i] = children;
-                i++;
+                
+                temp[i] = _children[i];
+                
             }
 
-            tempArray[_children.Length] = child;
+            temp[_children.Length] = child;
 
-            child._parent = _parent;
+            child._parent = this;
 
-            _children = tempArray;
-
-
+            _children = temp;
 
         }
 
-        public void RemoveChild(Transform2D child)
+        public bool RemoveChild(Transform2D child)
         {
 
+            bool childRemoved = false;
+            // If no children
+            if(_children.Length <= 0)
+            {
+                return false;
+            }
+            Transform2D[] temp = new Transform2D[_children.Length - 1];
+            // IF only one child and that child is the correct one
+            if(_children.Length == 1 && _children[0] == child)
+            {
+                childRemoved = true;
+                
+            }
+
+            
+            int j = 0;
+            for (int i = 0; j < _children.Length - 1; i++)
+            {
+                if (_children[i] != child)
+                {
+                    temp[j] = _children[i];
+                    j++;
+                }
+                else
+                {
+                    childRemoved = true;
+                }
+
+            }
+            if (childRemoved)
+            {
+                _children = temp;
+                child._parent = null;
+            }
+            return childRemoved;
         }
 
         public void UpdateTransforms()

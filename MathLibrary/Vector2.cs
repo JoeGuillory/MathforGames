@@ -71,9 +71,14 @@ namespace MathLibrary
             return (float)Math.Acos(other.DotProduct(this));
         }
 
-        public float Distance(Vector2 other)
+        public  float Distance(Vector2 other)
         {
             return (other - this).Magnitude;
+        }
+
+        public static float Distance(Vector2 left, Vector2 right)
+        {
+            return (left - right).Magnitude;
         }
 
         //Checks if the Vectors are Equal

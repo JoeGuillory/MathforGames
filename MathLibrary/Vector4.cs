@@ -84,6 +84,7 @@ namespace MathLibrary
 
         }
 
+
         //Checks if the Vectors are Equal
         public static bool operator ==(Vector4 left, Vector4 right)
         {

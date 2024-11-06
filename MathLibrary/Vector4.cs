@@ -10,7 +10,7 @@ namespace MathLibrary
     {
         public float x, y, z, w;
 
-
+        //Calculates the Magnitude
         public float Magnitude
         {
             get
@@ -18,6 +18,7 @@ namespace MathLibrary
                 return (float)Math.Abs(Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2) + Math.Pow(w,2)));
             }
         }
+        // Gets the vector to a length of 1
         public Vector4 Normalized
         {
             get
@@ -27,6 +28,10 @@ namespace MathLibrary
                 return this / Magnitude;
             }
         }
+        /// <summary>
+        /// Outputs a string of the vector
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "(" + x + ", " + y + ", " + z + "," + w +")";
@@ -38,11 +43,18 @@ namespace MathLibrary
             this.z = z;
             this.w = w;
         }
+        /// <summary>
+        /// Gets the Magnitude of this vector
+        /// </summary>
+        /// <returns></returns>
        public float GetMagnitude()
         {
             return Magnitude;
         }
-
+        /// <summary>
+        /// Normaliz this vector
+        /// </summary>
+        /// <returns></returns>
         public Vector4 Normalize()
         {
             this = Normalized;
@@ -74,10 +86,21 @@ namespace MathLibrary
         //𝑎 × 𝑏 = 𝑎𝑦 𝑏𝑧 − 𝑎𝑧 𝑏𝑦 cross for x
         //  𝑎𝑧 𝑏𝑥 − 𝑎𝑥 𝑏𝑧 cross for y
         //  𝑎𝑥 𝑏𝑦 − 𝑎𝑦 bx cross for z
+        /// <summary>
+        /// Gets the cross product of this Vector to another
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public Vector4 CrossProduct(Vector4 other)
         {
             return new Vector4((y * other.z - z * other.y), (z * other.x - x * other.z), (x * other.y - y * other.x), w = 0);
         }
+        /// <summary>
+        /// Gets the cross product of two different Vectors
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static Vector4 CrossProduct(Vector4 left, Vector4 right)
         {
             return new Vector4((left.y * right.z - left.z * right.y), (left.z * right.x - left.x * right.z), (left.x * right.y - left.y * right.x),left.w = 0);

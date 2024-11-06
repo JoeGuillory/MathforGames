@@ -45,6 +45,10 @@ namespace MathLibrary
             }
            
         }
+        /// <summary>
+        /// Converts a Matrix to a string output
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string matrix = ("| " + m00 + "," + m01 + "," + m02 + "|") +
@@ -53,24 +57,47 @@ namespace MathLibrary
                 
             return matrix;
         }
+        /// <summary>
+        /// Creates a Translation Matrix
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public static Matrix3 CreateTranslation(float x, float y)
         {
             return new Matrix3(1, 0, x,
                                0, 1, y,
                                0, 0, 1);
         }
+        /// <summary>
+        /// Creates a Rotation Matrix
+        /// </summary>
+        /// <param name="radians"></param>
+        /// <returns></returns>
         public static Matrix3 CreateRotation(float radians)
         {
             return new Matrix3(MathF.Cos(radians), -MathF.Sin(radians), 0,
                                MathF.Sin(radians), MathF.Cos(radians), 0,
                                  0, 0, 1);
         }
+
+        /// <summary>
+        /// Creates a Scale Matrix
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public static Matrix3 CreateScale(float x, float y)
         {
             return new Matrix3(x, 0, 0,
                                0, y, 0,
                                0, 0, 1);
         }
+        /// <summary>
+        /// Swaps the row and collums of a matrix
+        /// </summary>
+        /// <param name="mat"></param>
+        /// <returns></returns>
         static Matrix3 Transpose(Matrix3 mat)
         {
             return new Matrix3(mat.m00, mat.m10, mat.m20,
@@ -78,6 +105,8 @@ namespace MathLibrary
                                mat.m02, mat.m12, mat.m22);
 
         }
+
+        // adds two matricies
         public static Matrix3 operator +(Matrix3 a , Matrix3 b)
         {
             return new Matrix3(
@@ -91,7 +120,7 @@ namespace MathLibrary
             a.m21 + b.m21,
             a.m22 + b.m22);
         }
-
+        // subtracts two matricies
         public static Matrix3 operator -(Matrix3 a, Matrix3 b)
         {
            return new Matrix3(
@@ -105,6 +134,7 @@ namespace MathLibrary
            a.m21 - b.m21,
            a.m22 - b.m22);
         }
+        // Multiply a Matrix by a vector
         public static Vector3 operator *(Matrix3 a, Vector3 b)
         {
             return new Vector3(a.m00 * b.x + a.m01 * b.y + a.m02 * b.z,
@@ -113,6 +143,8 @@ namespace MathLibrary
 
 
         }
+        // Multiply two Matricies
+        // It multiply the rows of Matrix a to the Collums of matrix b
         public static Matrix3 operator *(Matrix3 a, Matrix3 b)
         {
             return new Matrix3(

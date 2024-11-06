@@ -10,7 +10,7 @@ namespace MathLibrary
     {
         public float x, y, z;
 
-
+        // Calculates the magnitude
         public float Magnitude
         {
             get
@@ -18,6 +18,7 @@ namespace MathLibrary
                 return (float)Math.Abs(Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2)));
             }
         }
+        // Gets the vector to a length of 1
         public Vector3 Normalized
         {
             get
@@ -27,6 +28,10 @@ namespace MathLibrary
                 return this / Magnitude;
             }
         }
+        /// <summary>
+        /// Out puts a string of the vector
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "(" + x + ", " + y + ", " + z +")";
@@ -37,11 +42,18 @@ namespace MathLibrary
             this.y = y;
             this.z = z;
         }
+        /// <summary>
+        /// Gets the Magnitude of this Vector
+        /// </summary>
+        /// <returns></returns>
         public float  GetMagnitude()
         {
             return Magnitude;
         }
-
+        /// <summary>
+        /// Normalizes this Vector
+        /// </summary>
+        /// <returns></returns>
         public Vector3 Normalize()
         {
             this = Normalized;
@@ -71,10 +83,21 @@ namespace MathLibrary
         //𝑎 × 𝑏 = 𝑎𝑦 𝑏𝑧 − 𝑎𝑧 𝑏𝑦 cross for x
               //  𝑎𝑧 𝑏𝑥 − 𝑎𝑥 𝑏𝑧 cross for y
               //  𝑎𝑥 𝑏𝑦 − 𝑎𝑦 bx cross for z
+        /// <summary>
+        /// Gets the cross product of This Vector to another
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public Vector3 CrossProduct(Vector3 other)
         {
             return new Vector3((y * other.z - z * other.y),(z * other.x - x * other.z),(x * other.y - y * other.x));  
         }
+        /// <summary>
+        /// Gets the Cross Product of two different Vectors
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static Vector3 CrossProduct(Vector3 left, Vector3 right)
         {
             return new Vector3((left.y * right.z - left.z * right.y), (left.z * right.x - left.x * right.z), (left.x * right.y - left.y * right.x));
@@ -106,6 +129,7 @@ namespace MathLibrary
         {
             return new Vector3(left.x * scaler, left.y * scaler, left.z * scaler);
         }
+        // Scale a vector up but with swaped input
         public static Vector3 operator *(float scaler,Vector3 left)
         {
             return new Vector3(left.x * scaler, left.y * scaler, left.z * scaler);

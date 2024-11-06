@@ -10,7 +10,7 @@ namespace MathLibrary
     {
         public float x, y;
 
-
+        //Calculates the magnitude
         public float Magnitude
         {
             get
@@ -18,6 +18,7 @@ namespace MathLibrary
                 return (float)Math.Abs(Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2)));
             }
         }
+        // Gets the vector to a length of 1
         public Vector2 Normalized
         {
             get
@@ -27,6 +28,11 @@ namespace MathLibrary
                 return this / Magnitude;
             }
         }
+
+        /// <summary>
+        /// Out puts a string of the vector
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "(" + x + ", " + y + ")";
@@ -36,7 +42,10 @@ namespace MathLibrary
             this.x = x;
             this.y = y;
         }
-
+        /// <summary>
+        /// Normalizes a vector
+        /// </summary>
+        /// <returns></returns>
         public Vector2 Normalize()
         {
             this = Normalized;
@@ -62,20 +71,38 @@ namespace MathLibrary
         {
             return (left.x * right.x) + (left.y * right.y);
         }
+        /// <summary>
+        /// Swaps the x and y of a vector
+        /// </summary>
+        /// <returns></returns>
         public Vector2 CrossProduct()
         {
             return new Vector2(y, x);
         }
+        /// <summary>
+        /// Gets the angle of this object to another object
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public float Angle(Vector2 other)
         {
             return (float)Math.Acos(other.DotProduct(this));
         }
-
+        /// <summary>
+        /// Gets the distance from this objecto to another object
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public  float Distance(Vector2 other)
         {
             return (other - this).Magnitude;
         }
-
+        /// <summary>
+        /// Gets the distance of two different objects
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static float Distance(Vector2 left, Vector2 right)
         {
             return (left - right).Magnitude;
@@ -106,6 +133,7 @@ namespace MathLibrary
         {
             return new Vector2(left.x * scaler, left.y * scaler);
         }
+        // Scale a vector but the input method is swapped
         public static Vector2 operator *(float scaler, Vector2 left)
         {
             return new Vector2(left.x * scaler, left.y * scaler);

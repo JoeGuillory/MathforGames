@@ -38,6 +38,7 @@ namespace MathLibrary
             this.m33 = m33;
 
         }
+
         public static Matrix4 Identity
         {
             get
@@ -49,6 +50,11 @@ namespace MathLibrary
                 0, 0, 0, 1);
             }
         }
+
+        /// <summary>
+        ///  Converts matrix to string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string matrix = ("| " + m00 + "," + m01 + "," + m02 + "," + m03 + "|") +
@@ -58,6 +64,11 @@ namespace MathLibrary
 
             return matrix;
         }
+        /// <summary>
+        /// Create a X rotation matrix 
+        /// </summary>
+        /// <param name="radian"></param>
+        /// <returns></returns>
         public static Matrix4 CreateRotationX(float radian)
         {
             return new Matrix4(1,0,0,0,
@@ -65,6 +76,12 @@ namespace MathLibrary
                               0,MathF.Sin(radian), MathF.Cos(radian),0,
                               0,0,0,1);
         }
+
+        /// <summary>
+        /// Creates a Y rotation Matrix
+        /// </summary>
+        /// <param name="radian"></param>
+        /// <returns></returns>
         public static Matrix4 CreateRotationY(float radian)
         {
             return new Matrix4(MathF.Cos(radian), 0, MathF.Sin(radian), 0,
@@ -73,12 +90,19 @@ namespace MathLibrary
                                0, 0, 0, 1);
                               
         }
+        /// <summary>
+        /// Creates a Z rotation Matrix
+        /// </summary>
+        /// <param name="radian"></param>
+        /// <returns></returns>
         public static Matrix4 CreateRotationZ(float radian)
         {
             return new Matrix4(MathF.Cos(radian), -MathF.Sin(radian), 0, 0,
                               MathF.Sin(radian), MathF.Cos(radian), 0, 0,
                               0, 0, 1, 0, 0, 0, 0, 1);
         }
+
+        // add two matricies 
         public static Matrix4 operator +(Matrix4 a, Matrix4 b)
         {
             return new Matrix4(
@@ -99,6 +123,7 @@ namespace MathLibrary
               a.m32 + b.m32,
               a.m33 + b.m33);
         }
+        // subtract two matricies
         public static Matrix4 operator -(Matrix4 a, Matrix4 b
             )
         {
@@ -120,6 +145,7 @@ namespace MathLibrary
               a.m32 - b.m32,
               a.m33 - b.m33);
         }
+        // multiply  a matrix by a vector
         public static Vector4 operator *(Matrix4 a, Vector4 b)
         {
             return new Vector4(a.m00 * b.x + a.m01 * b.y + a.m02 * b.z + a.m03 * b.w,
@@ -129,7 +155,8 @@ namespace MathLibrary
 
 
         }
-        //Need to finish this Function
+        // multiply two matricies
+        //It multiply the rows of Matrix a to the Collums of matrix b
         public static Matrix4 operator *(Matrix4 a, Matrix4 b)
         {
 

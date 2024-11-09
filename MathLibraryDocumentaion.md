@@ -8,10 +8,10 @@ This library handles Vector and Matrix math
 1. [Vector3](#vector3) 
 1. [Vector4](#vector4)
 1. [Matrix3](#matrix3)
-1. [Matrix4]()
+1. [Matrix4](#matrix4)
 
 ---
-## Vector2 {#vector2}
+## Vector2
 
 This represents 2D vectors and points 
 
@@ -57,7 +57,7 @@ Functions for Vector2
 	
 
 ---
-## Vector3 {#vector3}
+## Vector3
 
 Represents 3D Vectors and points
 
@@ -101,7 +101,7 @@ Vector3 example = new Vector3(1,1,1);
 
 ---
 
-## Vector4 {#vector4}
+## Vector4
 
 Represents four-deminsional vectors
 
@@ -147,7 +147,7 @@ Vector4 example = new Vector4(1,1,1,1);
 
 ---
 
-## Matrix3 {#matrix3}
+## Matrix3
 
 A standard 3x3 Matrix
 

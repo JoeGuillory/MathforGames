@@ -98,7 +98,7 @@ namespace MathLibrary
         /// </summary>
         /// <param name="mat"></param>
         /// <returns></returns>
-        static Matrix3 Transpose(Matrix3 mat)
+        public static Matrix3 Transpose(Matrix3 mat)
         {
             return new Matrix3(mat.m00, mat.m10, mat.m20,
                                mat.m01, mat.m11, mat.m21,

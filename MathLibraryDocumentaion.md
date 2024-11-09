@@ -2,7 +2,8 @@
 
 This library handles Vector and Matrix math
 
-Contents
+
+## Contents
 1. [Vector2](#vector2)
 1. [Vector3](#vector3) 
 1. [Vector4](#vector4)

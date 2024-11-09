@@ -8,7 +8,7 @@ This library handles Vector and Matrix math
 1. [Vector3](#vector3) 
 1. [Vector4](#vector4)
 1. [Matrix3](#matrix3)
-1. [Matrix4](#matrix4)
+1. [Matrix4]()
 
 ---
 ## Vector2 {#vector2}
@@ -82,10 +82,10 @@ Vector3 example = new Vector3(1,1,1);
 |              |                                                               |
 |--------------|---------------------------------------------------------------|
 | ToString     | Out puts a string of the vector                               |
-| GetMagnitude | Returns the Magnitude										   |
+| GetMagnitude | Returns the Magnitude					       |
 | Normalize    | Normalizes a vector                                           |
 | DotProduct   | Gets the dot product of this Objects vector to another vector |
-| CrossProduct | Gets the cross product of This Vector to another                                 |
+| CrossProduct | Gets the cross product of This Vector to another              |
 | Angle        | Gets the angle of this object to another object               |
 | Distance     | Gets the distance from this objecto to another object         |
 
@@ -128,10 +128,10 @@ Vector4 example = new Vector4(1,1,1,1);
 |              |                                                               |
 |--------------|---------------------------------------------------------------|
 | ToString     | Out puts a string of the vector                               |
-| GetMagnitude | Returns the Magnitude										   |
+| GetMagnitude | Returns the Magnitude					       |
 | Normalize    | Normalizes a vector                                           |
 | DotProduct   | Gets the dot product of this Objects vector to another vector |
-| CrossProduct | Gets the cross product of This Vector to another                                 |
+| CrossProduct | Gets the cross product of This Vector to another              |
 | Angle        | Gets the angle of this object to another object               |
 | Distance     | Gets the distance from this objecto to another object         |
 
@@ -172,8 +172,8 @@ Matrix3 matrix3 = new Matrix3(1,2,3,4,5,6,7,8,9);
 Would make a matrix like
 ```cs
 Matrix3 matrix3 = new Matrix3( 1, 2, 3, 
-							   4, 5, 6, 
-							   7, 8, 9);
+			       4, 5, 6, 
+                               7, 8, 9);
 ```
 
 ### Funtions
@@ -202,7 +202,7 @@ Matrix3 matrix3 = new Matrix3( 1, 2, 3,
 
 ---
 
-## Matrix4 {#matrix4}
+## Matrix4
 
 A standard 4x4 matrix
 
@@ -227,9 +227,9 @@ Matrix3 matrix3 = new Matrix3(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
 Would make a matrix like
 ```cs
 Matrix3 matrix3 = new Matrix3( 1,  2 , 3 , 4,
-							   5,  6 , 7 , 8,
-							   9,  10, 11, 12,
-							   13, 14, 15, 16);
+                               5,  6 , 7 , 8,
+                               9,  10, 11, 12,
+			       13, 14, 15, 16);
 ```
 
 ### Funtions

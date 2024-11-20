@@ -64,6 +64,17 @@ namespace MathLibrary
 
             return matrix;
         }
+
+        public static Matrix4 Transpose(Matrix4 mat)
+        {
+            return new Matrix4(mat.m00, mat.m10, mat.m20, mat.m30,
+                               mat.m01, mat.m11, mat.m21, mat.m31,
+                               mat.m02, mat.m12, mat.m22, mat.m32,
+                               mat.m03, mat.m13, mat.m23, mat.m33);
+
+
+        }
+
         /// <summary>
         /// Create a X rotation matrix 
         /// </summary>
